@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import videoData from "../data/video.js";
 import VideoDetails from "./VideoDetails";
-import Comment from "./Comment.js";
+import CommentSection from "./CommentSection";
 
 function App() {
-  const [video, setVideo] = useState(videoData)
-  const [showComments, setShowComments] = useState(true)
+  const [video, setVideo] = useState(videoData);
+  const [showComments, setShowComments] = useState(true);
 
   const handleUpvote = () => {
-    setVideo({ ...video, upvotes: video.upvotes + 1 })
-  }
+    setVideo({ ...video, upvotes: video.upvotes + 1 });
+  };
 
   const handleDownvote = () => {
-    setVideo({ ...video, downvotes: video.downvotes + 1 })
-  }
+    setVideo({ ...video, downvotes: video.downvotes + 1 });
+  };
 
   const toggleComments = () => {
-    setShowComments(!showComments)
-  }
+    setShowComments(!showComments);
+  };
 
   return (
     <div className="App">
@@ -41,7 +41,7 @@ function App() {
       <button onClick={toggleComments}>
         {showComments ? "Hide Comments" : "Show Comments"}
       </button>
-      {showComments && <Comment comments={video.comments} />}
+      {showComments && <CommentSection comments={video.comments} />}
     </div>
   );
 }
